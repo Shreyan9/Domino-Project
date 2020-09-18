@@ -15,6 +15,7 @@ public class Board {
 		PlayerThree = new Player(setPlayer(d));
 		PlayerFour = new Player(setPlayer(d));
 		order = new Player[4];
+		while(PlayerOne.getScore()<100&&PlayerTwo.getScore()<100&&PlayerThree.getScore()<100&&PlayerFour.getScore()<100) {
 		firstTurn(PlayerOne,PlayerTwo,PlayerThree,PlayerFour);
 		printHand(order[0]);
 		System.out.println("What domino do you want to place on the board?");
@@ -49,6 +50,20 @@ public class Board {
 		System.out.println("Player Two score: "+order[1].getScore());
 		System.out.println("Player Three score: "+order[2].getScore());
 		System.out.println("Player Four score: "+order[3].getScore());
+		d.resetDeck();
+	}
+		System.out.println("Player One FINAL score: "+order[0].getScore());
+		System.out.println("Player Two FINAL score: "+order[1].getScore());
+		System.out.println("Player Three FINAL score: "+order[2].getScore());
+		System.out.println("Player Four FINAL score: "+order[3].getScore());
+		if(order[0].getScore()>100)
+			System.out.println("Player One WINS");
+		if(order[1].getScore()>100)
+			System.out.println("Player Two WINS");
+		if(order[2].getScore()>100)
+			System.out.println("Player Three WINS");
+		if(order[3].getScore()>100)
+			System.out.println("Player Four WINS");
 		
 	}
 	public ArrayList<Domino> setPlayer( Deck d) {
