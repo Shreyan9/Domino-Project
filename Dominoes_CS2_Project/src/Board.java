@@ -4,16 +4,18 @@ public class Board {
 	private Player PlayerTwo;
 	private Player PlayerThree;
 	private Player PlayerFour;
+	private ArrayList<Domino> Boneyard;
 	private Player order[];
 	private ArrayList<Domino> board;
 	public Board() {
 		board = new ArrayList<>();
 		Scanner kb = new Scanner(System.in);
 		Deck d = new Deck();
-		PlayerOne = new Player(setPlayer(d));
-		PlayerTwo = new Player(setPlayer(d));
-		PlayerThree = new Player(setPlayer(d));
-		PlayerFour = new Player(setPlayer(d));
+		Boneyard = d.getDeck();
+		PlayerOne = new Player(setPlayer(Boneyard));
+		PlayerTwo = new Player(setPlayer(Boneyard));
+		PlayerThree = new Player(setPlayer(Boneyard));
+		PlayerFour = new Player(setPlayer(Boneyard));
 		order = new Player[4];
 		while(PlayerOne.getScore()<100&&PlayerTwo.getScore()<100&&PlayerThree.getScore()<100&&PlayerFour.getScore()<100) {
 		firstTurn(PlayerOne,PlayerTwo,PlayerThree,PlayerFour);
@@ -66,11 +68,11 @@ public class Board {
 			System.out.println("Player Four WINS");
 		
 	}
-	public ArrayList<Domino> setPlayer( Deck d) {
+	public ArrayList<Domino> setPlayer( ArrayList<Domino> d ) {
 		ArrayList temp = new ArrayList<Domino>();
 		for(int i =0; i<7;i++) {
-			temp.add(d.getDeck().get(i));
-			d.removeDomino(d.getDeck().get(i));
+			temp.add(d.get(i));
+			d.remove(d.get(i));
 		}
 		return temp;
 	}
