@@ -1,14 +1,11 @@
-import java.awt.image.BufferedImage;
 import java.util.*;
 public class Player{
-	private List<Domino> PlayerHand;
-	private List<BufferedImage> PlayerGraphics;
+	private ArrayList<Domino> PlayerHand;
+	
 	private int score;
-	private boolean IsFirst;
 	public Player() {score = 0;}
-	public Player(List<Domino> p, List<BufferedImage> b) {
+	public Player(ArrayList<Domino> p) {
 		PlayerHand = p;
-		PlayerGraphics = b;
 		int score = 0;
 	}
 	public void removeDomino(Domino d){
@@ -26,11 +23,8 @@ public class Player{
 	public int getScore() {
 		return score;
 	}
-	public List<Domino> getPlayerHand() {
+	public ArrayList<Domino> getPlayerHand() {
 		return PlayerHand;
-	}
-	public List<BufferedImage> getGraphicsHand() {
-		return PlayerGraphics;
 	}
 	public int getHighestDouble() {
 		int x =0;
@@ -47,11 +41,7 @@ public class Player{
 		return 1;
 		
 	}
-	public void setTurn(boolean b) {
-		IsFirst = b;
-	}
-	public boolean getTurn() {
-		return IsFirst;
-	}
+	
+	
 	
 }

@@ -29,5 +29,8 @@ public class Domino {
 	 public boolean isDouble() {
 		 return pip1==pip2;
 	 }
+	 public String toString() {
+		 return "" + pip1 +"-"+ pip2;
+	 }
 	 
 }
