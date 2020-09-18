@@ -45,10 +45,10 @@ public class Board {
 		PlayerThree.setScore(addUpScores(PlayerThree));
 		PlayerFour.setScore(addUpScores(PlayerFour));
 		
-		System.out.println("Player One score: "+order[0]);
-		System.out.println("Player Two score: "+order[1]);
-		System.out.println("Player Three score: "+order[2]);
-		System.out.println("Player Four score: "+order[3]);
+		System.out.println("Player One score: "+order[0].getScore());
+		System.out.println("Player Two score: "+order[1].getScore());
+		System.out.println("Player Three score: "+order[2].getScore());
+		System.out.println("Player Four score: "+order[3].getScore());
 		
 	}
 	public ArrayList<Domino> setPlayer( Deck d) {
