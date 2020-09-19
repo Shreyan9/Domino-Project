@@ -75,7 +75,7 @@ public class Board {
 		ArrayList temp = new ArrayList<Domino>();
 		for(int i =0; i<7;i++) {
 			temp.add(Boneyard.get(i));
-			d.remove(Boneyard.get(i));
+			Boneyard.remove(Boneyard.get(i));
 		}
 		return temp;
 	}
