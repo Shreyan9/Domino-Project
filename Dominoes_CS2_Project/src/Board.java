@@ -12,10 +12,10 @@ public class Board {
 		Scanner kb = new Scanner(System.in);
 		Deck d = new Deck();
 		Boneyard = d.getDeck();
-		PlayerOne = new Player(setPlayer(Boneyard));
-		PlayerTwo = new Player(setPlayer(Boneyard));
-		PlayerThree = new Player(setPlayer(Boneyard));
-		PlayerFour = new Player(setPlayer(Boneyard));
+		PlayerOne = new Player(setPlayer());
+		PlayerTwo = new Player(setPlayer());
+		PlayerThree = new Player(setPlayer());
+		PlayerFour = new Player(setPlayer());
 		order = new Player[4];
 		while(PlayerOne.getScore()<100&&PlayerTwo.getScore()<100&&PlayerThree.getScore()<100&&PlayerFour.getScore()<100) {
 		firstTurn(PlayerOne,PlayerTwo,PlayerThree,PlayerFour);
@@ -71,11 +71,11 @@ public class Board {
 			System.out.println("Player Four WINS");
 		
 	}
-	public ArrayList<Domino> setPlayer( ArrayList<Domino> d ) {
+	public ArrayList<Domino> setPlayer() {
 		ArrayList temp = new ArrayList<Domino>();
 		for(int i =0; i<7;i++) {
-			temp.add(d.get(i));
-			d.remove(d.get(i));
+			temp.add(Boneyard.get(i));
+			d.remove(Boneyard.get(i));
 		}
 		return temp;
 	}
