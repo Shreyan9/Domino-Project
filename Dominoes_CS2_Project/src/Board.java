@@ -42,11 +42,14 @@ public class Board {
 				passes++;
 			}
 		}
-		
-		PlayerOne.setScore(addUpScores(PlayerOne));
-		PlayerTwo.setScore(addUpScores(PlayerTwo));
-		PlayerThree.setScore(addUpScores(PlayerThree));
-		PlayerFour.setScore(addUpScores(PlayerFour));
+		if(order[0].getPlayerHand().size()==0)
+			PlayerOne.setScore(addUpScores(PlayerTwo,PlayerThree,PlayerFour));
+		if(order[1].getPlayerHand().size()==0)
+			PlayerTwo.setScore(addUpScores(PlayerOne,PlayerThree,PlayerFour));
+		if(order[2].getPlayerHand().size()==0)
+			PlayerThree.setScore(addUpScores(PlayerTwo,PlayerOne,PlayerFour));
+		if(order[3].getPlayerHand().size()==0)
+			PlayerFour.setScore(addUpScores(PlayerTwo,PlayerThree,PlayerOne));
 		
 		System.out.println("Player One score: "+order[0].getScore());
 		System.out.println("Player Two score: "+order[1].getScore());
@@ -77,13 +80,23 @@ public class Board {
 		return temp;
 	}
 	
-	public int addUpScores(Player p) {
-		int x = p.getScore();
+	public int addUpScores(Player p, Player x, Player y) {
+		int n = p.getScore();
 		for(int i = 0; i<p.getPlayerHand().size();i++) {
-			x += p.getPlayerHand().get(i).getPip1();
-			x += p.getPlayerHand().get(i).getPip2();
+			n += p.getPlayerHand().get(i).getPip1();
+			n += p.getPlayerHand().get(i).getPip2();
 		}
-		return x;
+		int c = x.getScore();
+		for(int i = 0; i<x.getPlayerHand().size();i++) {
+			c += x.getPlayerHand().get(i).getPip1();
+			c += x.getPlayerHand().get(i).getPip2();
+		}
+		int o = y.getScore();
+		for(int i = 0; i<y.getPlayerHand().size();i++) {
+			o += y.getPlayerHand().get(i).getPip1();
+			o+= y.getPlayerHand().get(i).getPip2();
+		}
+		return n+c+o;
 	}
 	public ArrayList<Domino> getPlayerOneDeck(){
 		return order[0].getPlayerHand();
